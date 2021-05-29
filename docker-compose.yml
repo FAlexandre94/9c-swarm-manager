@@ -1,15 +1,9 @@
 version: '3'
 
 services:
-  manager:
-    container_name: manager
-    build:
-      context: .
-      dockerfile: Dockerfile
+  swarmManager:
+    image: cryptokasm/9c-swarm-manager:latest
     volumes:
-      - /var/run/docker.sock:/var/run/docker-host.sock
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - DEBUG=1
-      - TRACE=1
       - DEV_MODE=true
-      - PRIVATE_KEY=DISABLE
